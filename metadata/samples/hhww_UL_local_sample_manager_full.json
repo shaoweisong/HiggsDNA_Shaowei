@@ -4,7 +4,7 @@
         "bf": 1.0,
         "files": {
             "2017": [
-                "/eos/user/z/zhenxuan/DoubleHiggs/Resonant_ROOT_files/NanoAOD_latest/557E448E-B4F8-8745-8ED5-C5F3474AD08B.root"
+                "/eos/user/s/shsong/ForSW/GluGluToRadionToHHTo2G2WTo2G4Q_M250.root"
             ]
         }
     },
@@ -619,18 +619,18 @@
         "bf": 1.0,
         "files": {
             "2017": [
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/60000/2B59E636-A700-DC4E-BC98-D3450CEC6DC8.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/60000/B60BFEE4-9D8A-8A42-A017-272B16BF3D00.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/60000/B82E5E48-D45E-074F-B692-747EB4FE66D8.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/70000/E814354D-0FEA-E04C-A034-A2E8D2C77E11.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/270000/7F65A88F-C924-F34F-9107-AC628C77B40C.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/270000/C163E886-65D2-EC45-B641-D055F503E5FD.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/270000/0031F906-9FB6-E142-8DFF-E228470DF92C.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/270000/9480996A-55D4-E544-8FEC-9226CDFB3059.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/270000/96AD191A-9072-4A47-8F2A-34C8FEA5E9AE.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/120000/CE6E455C-9C6F-DF48-8D31-8654C16B78CF.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/120000/691F200F-8298-6645-A574-99019BC23B3A.root",
-                "root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAODv7/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/120000/59B3A7CF-B952-0E4A-BF1C-088864159A54.root"
+                "/eos/user/s/shsong/bkgfiles/0031F906-9FB6-E142-8DFF-E228470DF92C.root",
+                "/eos/user/s/shsong/bkgfiles/2B59E636-A700-DC4E-BC98-D3450CEC6DC8.root",
+                "/eos/user/s/shsong/bkgfiles/59B3A7CF-B952-0E4A-BF1C-088864159A54.root",
+                "/eos/user/s/shsong/bkgfiles/691F200F-8298-6645-A574-99019BC23B3A.root",
+                "/eos/user/s/shsong/bkgfiles/7F65A88F-C924-F34F-9107-AC628C77B40C.root",
+                "/eos/user/s/shsong/bkgfiles/9480996A-55D4-E544-8FEC-9226CDFB3059.root",
+                "/eos/user/s/shsong/bkgfiles/96AD191A-9072-4A47-8F2A-34C8FEA5E9AE.root",
+                "/eos/user/s/shsong/bkgfiles/B60BFEE4-9D8A-8A42-A017-272B16BF3D00.root",
+                "/eos/user/s/shsong/bkgfiles/B82E5E48-D45E-074F-B692-747EB4FE66D8.root",
+                "/eos/user/s/shsong/bkgfiles/C163E886-65D2-EC45-B641-D055F503E5FD.root",
+                "/eos/user/s/shsong/bkgfiles/CE6E455C-9C6F-DF48-8D31-8654C16B78CF.root",
+                "/eos/user/s/shsong/bkgfiles/E814354D-0FEA-E04C-A034-A2E8D2C77E11.root"
             ]
         }
     },

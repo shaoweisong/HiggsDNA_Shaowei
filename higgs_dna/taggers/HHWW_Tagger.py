@@ -4,7 +4,8 @@ import awkward
 import vector
 import numpy
 from higgs_dna.selections import (fatjet_selections, jet_selections,
-                                  lepton_selections,gen_selections)
+                                  lepton_selections,gen_selections,object_selections)
+
 from higgs_dna.taggers.tagger import NOMINAL_TAG, Tagger
 from higgs_dna.utils import awkward_utils, misc_utils
 
@@ -142,6 +143,10 @@ class HHWW_Preselection(Tagger):
             name = "SelectedFatJet",
             data = events.FatJet[fatjet_cut]
         )   
+
+        fatjets["Tau4_Tau2"]=(fatjets["tau4"]/fatjets["tau2"])
+        fatjets["Tau2_Tau1"]=(fatjets["tau2"]/fatjets["tau1"])        
+
         awkward_utils.add_object_fields(
         events=events,
         name="fatjet",
@@ -175,7 +180,40 @@ class HHWW_Preselection(Tagger):
             name="SelectedJet",
             data=events.Jet[jet_cut]
         )
-        
+
+        gen_q1_p4,gen_q2_p4,gen_q3_p4,gen_q4_p4=gen_selections.gen_Hww_4q(events)
+        jet_p4 = vector.awk(
+            {
+                "pt" : jets["pt"],
+                "eta" : jets["eta"],
+                "phi" : jets["phi"],
+                "mass" : jets["mass"]
+            },
+            with_name = "Momentum4D"
+        )
+        jets["deltaR_1"] = jet_p4.deltaR(gen_q1_p4)
+        jets["deltaR_2"] = jet_p4.deltaR(gen_q2_p4)
+        jets["deltaR_3"] = jet_p4.deltaR(gen_q3_p4)
+        jets["deltaR_4"] = jet_p4.deltaR(gen_q4_p4)
+
+
+
+
+
+       # gen_q1,gen_q2,gen_q3,gen_q4=gen_selections.gen_Hww_4q(events)
+        #deltar = []
+        #for i in range(0,):
+            #unflattenjets[i]=awkward.unflatten(jets[:,i],1)
+         #   deltar.append(unflattenjets[i].deltaR(gen_q1))
+            #deltar.append(unflattenjets[i].deltaR(gen_q2))
+          #  deltar.append(unflattenjets[i].deltaR(gen_q3))
+           # deltar.append(unflattenjets[i].deltaR(gen_q4))
+            #deltar.append(jets[:,i].deltaR(gen_q1))
+            #deltar.append(jets[:,i].deltaR(gen_q2))
+            #deltar.append(jets[:,i].deltaR(gen_q3))
+            #deltar.append(jets[:,i].deltaR(gen_q4))
+ #       deltar = np.array(deltar)
+#        jets['deltaR'] = deltar.reshape(len(jets),4)
 
         # jets_7WithEachEvent = awkward.pad_none(jets, 7, clip=True)
         # FIXME: I have no other method, but just loop event by event to sort 2jets combined with 4 jets mass and get the W1 and W2 mass.
@@ -242,7 +280,4 @@ class HHWW_Preselection(Tagger):
             results=[photon_id_cut,Lepton_Selection]
         )
         return presel_cut, events
-
-
-
 
