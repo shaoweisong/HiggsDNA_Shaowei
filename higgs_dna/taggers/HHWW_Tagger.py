@@ -7,6 +7,7 @@ from higgs_dna.selections import (fatjet_selections, jet_selections,
                                   lepton_selections,gen_selections,object_selections)
 
 from higgs_dna.taggers.tagger import NOMINAL_TAG, Tagger
+from higgs_dna.taggers import diphoton_tagger
 from higgs_dna.utils import awkward_utils, misc_utils
 
 vector.register_awkward()
@@ -185,20 +186,21 @@ class HHWW_Preselection(Tagger):
         jet_cut = jet_selections.select_jets(
             jets=events.Jet,
             options=self.options["jets"],
-            clean={
-                "photons": {
-                    "objects": events.Diphoton.Photon,
-                    "min_dr": self.options["jets"]["dr_photons"]
-                },
-                "electrons": {
-                    "objects": events.SelectedElectron,
-                    "min_dr": self.options["jets"]["dr_electrons"]
-                },
-                "muons": {
-                    "objects": events.SelectedMuon,
-                    "min_dr": self.options["jets"]["dr_muons"]
-                }
-            },
+############clean = {},
+                   clean={
+                       "photons": {
+                           "objects": events.Diphoton.Photon,
+                           "min_dr": self.options["jets"]["dr_photons"]
+                       },
+                       "electrons": {
+                           "objects": events.SelectedElectron,
+                           "min_dr": self.options["jets"]["dr_electrons"]
+                       },
+                       "muons": {
+                           "objects": events.SelectedMuon,
+                           "min_dr": self.options["jets"]["dr_muons"]
+                       }
+                   }, #close for QCD samples
             name = "SelectedJet",
             tagger=self
         )
@@ -225,21 +227,31 @@ class HHWW_Preselection(Tagger):
             },
             with_name = "Momentum4D"
         )
-        # lead_p4 = vector.awk(
-        #     {
-        #         "pt" : events.lead["pt"],
-        #         "eta" : events.lead["eta"],
-        #         "phi" : events.lead["phi"],
-        #         "mass" : events.lead["mass"]
-        #     },
-        #     with_name = "Momentum4D"
-        # )
-        events.Photon.pt
+        lead_photon_vec = vector.awk(
+            {
+                "pt" : events["LeadPhoton", "pt"],
+                "eta" : events["LeadPhoton", "eta"],
+                "phi" : events["LeadPhoton", "phi"],
+                "mass" : events["LeadPhoton", "mass"] 
+            },
+            with_name = "Momentum4D"
+        )
+        sublead_photon_vec = vector.awk(
+            {
+                "pt" : events["SubleadPhoton", "pt"],
+                "eta": events["SubleadPhoton", "eta"],
+                "phi": events["SubleadPhoton", "phi"],
+                "mass": events["SubleadPhoton", "mass"]
+            },
+            with_name = "Momentum4D"
+        )
+
         jets["deltaR_q1"] = jet_p4.deltaR(gen_q1_p4)
         jets["deltaR_q2"] = jet_p4.deltaR(gen_q2_p4)
         jets["deltaR_q3"] = jet_p4.deltaR(gen_q3_p4)
         jets["deltaR_q4"] = jet_p4.deltaR(gen_q4_p4)
-
+        jets["deltaR_pho1"] = jet_p4.deltaR(lead_photon_vec)
+        jets["deltaR_pho2"] = jet_p4.deltaR(sublead_photon_vec)
 
         awkward_utils.add_object_fields(
             events=events,
