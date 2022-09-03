@@ -15,6 +15,8 @@ def gen_Hww_4q(events):
     unflatten_gen_q3 = awkward.unflatten(gen_qqqq[:,2],1)
     unflatten_gen_q4 = awkward.unflatten(gen_qqqq[:,3],1)
 
+    # the four quarks Momentum4D
+
     gen_q1_p4 = vector.awk(
         {
             "pt" : unflatten_gen_q1["pt"],
@@ -51,6 +53,7 @@ def gen_Hww_4q(events):
         },
         with_name = "Momentum4D"
     )
+
     gen_q1 = awkward_utils.add_field(
     events = events,
     name = "gen_q1",
@@ -165,8 +168,8 @@ def gen_Hww_4q(events):
     n_objects=1,
     dummy_value=-999
     )
+    return gen_q1_p4, gen_q2_p4, gen_q3_p4, gen_q4_p4
 
-    return gen_q1_p4,gen_q2_p4,gen_q3_p4,gen_q4_p4
 
 def select_x_to_yz(gen_part, x_pdgId, y_pdgId, z_pdgId):
     """
