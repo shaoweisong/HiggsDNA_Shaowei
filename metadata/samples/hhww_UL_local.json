@@ -3722,5 +3722,14 @@
                 "files":{
                 "2017":["/eos/user/s/shsong/bkgfiles/A8B67D5E-BA43-E811-86FA-A4BF01125538.root"
                 ]
- }}
+ }},
+ "test" : {
+    "fpo" : 1,
+    "xs" : 878.1,
+    "bf" : 1.0,
+    "files" : {
+        "2017" : ["/eos/user/s/shsong/bkgfiles/98EDED20-ADFF-9645-A702-34A6D192EB07.root"
+        ]
+    }
+}
                 }

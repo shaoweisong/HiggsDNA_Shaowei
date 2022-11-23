@@ -3,7 +3,7 @@ from array import array
 GJets=ROOT.TFile.Open("Gjet_fake.root")
 GJets_tree=GJets.Get("tree")
 cuts="(Diphoton_lead_pt_mgg>0.35)*(Diphoton_sublead_pt_mgg>0.25)*(CMS_hgg_mass<115 || CMS_hgg_mass>135)"
-h_minphotonID=ROOT.TH1F("h_minphotonID_gjet","h_minphotonID_gjet",19,-0.9,1);
+h_minphotonID=ROOT.TH1F("h_minphotonID_gjet","h_minphotonID_gjet",19,-0.9,1)
 GJets_tree.Project("h_minphotonID_gjet","minID","weight*41.5*"+cuts)
 photonIDPDF_fake=ROOT.TF1("photonIDPDF_fake","pol7",-0.9,1.)
 h_minphotonID.Fit(photonIDPDF_fake,"R")
@@ -55,7 +55,7 @@ for i in range(0,nevents):
             PhotonID_min=Subleading_Photon_MVA
             hasMaxLead.append(1)
         minID.append(PhotonID_min)
-        new_weight = photonIDPDF_fake.Integral(-0.7,Photon_MVA_max) / photonIDPDF_fake.Integral(-0.9,-0.7);
+        new_weight = photonIDPDF_fake.Integral(-0.7,Photon_MVA_max) / photonIDPDF_fake.Integral(-0.9,-0.7)
     weights.append(new_weight)
     if(i%100000==0):
         print("Read entry:",i,new_weight)
