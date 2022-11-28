@@ -300,7 +300,7 @@ class HHWW_Preselection_FH(Tagger):
         category = awkward.where(category_p2, awkward.ones_like(category)*2, category)
         category = awkward.where(category_p1, awkward.ones_like(category)*1, category)
         awkward_utils.add_field(events, "category", category) 
-        category_cut = category >= 0 # attention category equal to 0 mean don't pass any selection
+        category_cut = category > 0 # attention category equal to 0 mean don't pass any selection
 
         # OnlyFourJet_category = (n_leptons == 0) & (n_jets >= 4)
         Lepton_Selection = (n_leptons==0) 
@@ -319,7 +319,7 @@ class HHWW_Preselection_FH(Tagger):
         cat_1jet_cut = (n_fatjets_H>=1)
 
         self.register_cuts(
-            names=["Photon id Selection","Lepton Selection",""],
-            results=[photon_id_cut,Lepton_Selection]
+            names=["Photon id Selection","Lepton Selection","Category_cut"],
+            results=[photon_id_cut,Lepton_Selection,category_cut]
         )
         return presel_cut, events

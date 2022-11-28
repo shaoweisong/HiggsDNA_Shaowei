@@ -6,7 +6,7 @@ import json
 import pickle
 import dill
 import numpy
-
+import subprocess
 import uproot
 import awkward
 
@@ -465,13 +465,22 @@ class AnalysisManager():
         """
         events = []
         sum_weights = 0
-        use_xrdcp = False
+        use_xrdcp = True
         for file in files:
             if use_xrdcp:
-                local_file_name = file.split("/")[-1]
+                local_file_name = "/eos/cms/store/group/phys_higgs/cmshgg/shsong" + file.split("/")[-1]
                 # local_file_name = file.replace("/","_")
                 time.sleep(10)
                 logger.debug("sleep 10 secs before xrdcp")
+                xrdcpvalue = subprocess.call("xrdcp",file,local_file_name)
+                if xrdcpvalue!=0:
+                    xrdcpvalue2 = subprocess.call("xrdcp",file,local_file_name) 
+                    if xrdcpvalue2 != 0:
+                        xrdcpvalue3 = subprocess.call("xrdcp",file,local_file_name)  
+                        if xrdcpvalue3 != 0:
+                            xrdcpvalue4 = subprocess.call("xrdcp",file,local_file_name)  
+                            if xrdcpvalue4 != 0:
+                                logger.debug("file not found ([ERROR] %s"%file) 
                 os.system("xrdcp %s %s" % (file, local_file_name))
                 file = local_file_name
                 logger.debug("local file name: %s" %file )

@@ -1,5 +1,5 @@
 
-void makedatadrivenQCD()
+void makedatadrivenQCD_bak()
 {
 
   // Inputs
@@ -8,15 +8,15 @@ void makedatadrivenQCD()
   vector<string> gjetfilenames = {
     //"/eos/user/r/rasharma/post_doc_ihep/double-higgs/ntuples/January_2021_Production/DNN_MoreVar/Backgrounds/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV.root",
     //"/eos/user/r/rasharma/post_doc_ihep/double-higgs/ntuples/January_2021_Production/DNN_MoreVar/Backgrounds/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf.root"
-    "/eos/user/z/zhenxuan/hhwwgg_root/GJet_Pt-20to40_2017.root",
-    "/eos/user/z/zhenxuan/hhwwgg_root/GJet_Pt-40toInf_2017.root"
+    "/eos/user/s/shsong/hhwwggFH_root/Datadriven/GJet_20_40.root",
+    "/eos/user/s/shsong/hhwwggFH_root/Datadriven/GJet_40_Inf.root"
   };
 
   vector<string> gjettreenames = {
     //"tagsDumper/trees/GJet_Pt_20to40_DoubleEMEnriched_MGG_80toInf_TuneCP5_13TeV_Pythia8_13TeV_HHWWggTag_1",
     //"tagsDumper/trees/GJet_Pt_40toInf_DoubleEMEnriched_MGG_80toInf_TuneCP5_13TeV_Pythia8_13TeV_HHWWggTag_1"
-    "GJet_Pt_20to40_DoubleEMEnriched_MGG_80toInf_TuneCP5_13TeV_Pythia8_13TeV_HHWWggTag_1",
-    "GJet_Pt_40toInf_DoubleEMEnriched_MGG_80toInf_TuneCP5_13TeV_Pythia8_13TeV_HHWWggTag_1"
+    "GJet",
+    "GJet"
   };
 
   vector<float> gjetlumis = {
@@ -26,12 +26,12 @@ void makedatadrivenQCD()
 
   vector<string> datafilenames = {
     //"/eos/user/r/rasharma/post_doc_ihep/double-higgs/ntuples/January_2021_Production/DNN_MoreVar/Backgrounds/Data_2017.root"
-    "/eos/user/a/atishelm/ntuples/HHWWgg_flashgg/WWZ_SignalTopology_Checks/2017/SingleElectron_Data_2017_hadded/SingleElectron_Data_2017.root"
+    "/eos/user/s/shsong/hhwwggFH_root/Datadriven/Data.root"
   };
 
   vector<string> datatreenames = {
     //"tagsDumper/trees/Data_13TeV_HHWWggTag_1"
-    "Data_13TeV_HHWWggTag_1"
+    "Data"
   };
 
   
