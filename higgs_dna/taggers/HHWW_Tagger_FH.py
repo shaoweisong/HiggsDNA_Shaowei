@@ -4,10 +4,10 @@ import awkward
 import vector
 import numpy
 from higgs_dna.selections import (fatjet_selections, jet_selections,
-                                  lepton_selections,gen_selections)
+                              lepton_selections,gen_selections)
 from higgs_dna.taggers.tagger import NOMINAL_TAG, Tagger
 from higgs_dna.utils import awkward_utils, misc_utils
-
+import math
 vector.register_awkward()
 
 logger = logging.getLogger(__name__)
@@ -235,6 +235,7 @@ class HHWW_Preselection_FH(Tagger):
             },
             with_name = "Momentum4D"
         )
+
         # lead_p4 = vector.awk(
         #     {
         #         "pt" : events.lead["pt"],
@@ -255,10 +256,11 @@ class HHWW_Preselection_FH(Tagger):
         awkward_utils.add_object_fields(
             events=events,
             name="jet",
-            objects=jets,
+            objects=jets[awkward.argsort(jets.pt, ascending=False, axis=-1)],
             n_objects=7,
             dummy_value=-999
         )
+
         # bjets = jets[awkward.argsort(jets.btagDeepFlavB, axis=1, ascending=False)]
         # bjets = bjets[bjets.btagDeepFlavB > self.options["btag_wp"][self.year]]
 
@@ -267,12 +269,12 @@ class HHWW_Preselection_FH(Tagger):
         muons = awkward.Array(muons, with_name="Momentum4D")
 
         # Preselection
+        n_jets = awkward.num(jets)
         n_electrons = awkward.num(electrons)
         n_muons = awkward.num(muons)
         n_leptons = n_electrons + n_muons
         # n_diphotons = awkward.num(events.Diphoton)
         # logger.debug(" the N_diphoton : %f" % (n_diphotons))
-        n_jets = awkward.num(jets)
         awkward_utils.add_field(events,"nGoodAK4jets",n_jets)
         n_fatjets = awkward.num(fatjets)
         n_fatjets_W = awkward.num(fatjets_W)
@@ -317,7 +319,6 @@ class HHWW_Preselection_FH(Tagger):
         cat_4jets_cut = (n_jets>=4)
         cat_2jets_3jets_cut = (n_fatjets_W>=1) & (n_jets>=1)
         cat_1jet_cut = (n_fatjets_H>=1)
-
         self.register_cuts(
             names=["Photon id Selection","Lepton Selection","Category_cut"],
             results=[photon_id_cut,Lepton_Selection,category_cut]

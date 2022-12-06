@@ -132,3 +132,6 @@ dmypy.json
 examples/output/
 scripts/output/
 jsonpog-integration/
+eos_logs/
+*.err
+r/

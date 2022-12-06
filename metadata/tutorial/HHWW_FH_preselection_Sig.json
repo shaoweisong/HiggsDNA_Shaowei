@@ -12,7 +12,7 @@
                 "name": "diphoton_tagger",
                 "options": {
                     "gen_info": {
-                        "calculate": false
+                        "calculate": true
                     }
                 }
             }
@@ -24,7 +24,7 @@
                 "name": "HHWW_tagger_FH",
                 "options": {
                     "gen_info": {
-                        "is_Signal": false
+                        "is_Signal": true
                     }
                 }
             }
@@ -37,6 +37,82 @@
     "samples": {
         "catalog": "metadata/samples/hhww_UL_local.json",
         "sample_list": [
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-300",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-500",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-700",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-1000",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-1500",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-2000",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-2600",
+            "GluGluToRadionToHHTo2G2WTo2G4Q_M-3000",
+
+            "GluGluToRadionToHHTo2G4Q_M250",
+            "GluGluToRadionToHHTo2G4Q_M260",
+            "GluGluToRadionToHHTo2G4Q_M270",
+            "GluGluToRadionToHHTo2G4Q_M280",
+            "GluGluToRadionToHHTo2G4Q_M300",
+            "GluGluToRadionToHHTo2G4Q_M320",
+            "GluGluToRadionToHHTo2G4Q_M350",
+            "GluGluToRadionToHHTo2G4Q_M400",
+            "GluGluToRadionToHHTo2G4Q_M450",
+            "GluGluToRadionToHHTo2G4Q_M500",
+            "GluGluToRadionToHHTo2G4Q_M550",
+            "GluGluToRadionToHHTo2G4Q_M600",
+            "GluGluToRadionToHHTo2G4Q_M650",
+            "GluGluToRadionToHHTo2G4Q_M700",
+            "GluGluToRadionToHHTo2G4Q_M750",
+            "GluGluToRadionToHHTo2G4Q_M800",
+            "GluGluToRadionToHHTo2G4Q_M850",
+            "GluGluToRadionToHHTo2G4Q_M900",
+            "GluGluToRadionToHHTo2G4Q_M1000",
+            "GluGluToRadionToHHTo2G4Q_M1250",
+            "GluGluToRadionToHHTo2G4Q_M1750",
+            "GluGluToRadionToHHTo2G4Q_M2000",
+            "GluGluToRadionToHHTo2G4Q_M2500",
+            "GluGluToRadionToHHTo2G4Q_M3000",
+            "ttHJetToGG_M125",
+            "TTToHadronic",
+            "TTGG_0Jets",
+            "TTGJets",
+            "DiPhotonJetsBox_MGG",
+            "DiPhotonJetsBox_M40",
+            "DiPhotonJetsBox_M40_ext2",
+            "GJet_Pt-20to40",
+            "GJet_Pt-40toInf",
+            "QCD_HT50to100",
+            "QCD_HT100to200",
+            "QCD_HT200to300",
+            "QCD_HT300to500",
+            "QCD_HT500to700",
+            "QCD_HT700to1000",
+            "QCD_HT1000to1500",
+            "QCD_HT1500to2000",
+            "QCD_HT2000toInf",
+            "GluGluToRadionToHHTo2B2G_M-1000",
+            "GluGluToRadionToHHTo2B2G_M-1250",
+            "GluGluToRadionToHHTo2B2G_M-1500",
+            "GluGluToRadionToHHTo2B2G_M-1750",
+            "GluGluToRadionToHHTo2B2G_M-2000",
+            "GluGluToRadionToHHTo2B2G_M-2500",
+            "GluGluToRadionToHHTo2B2G_M-250",
+            "GluGluToRadionToHHTo2B2G_M-260",
+            "GluGluToRadionToHHTo2B2G_M-270",
+            "GluGluToRadionToHHTo2B2G_M-280",
+            "GluGluToRadionToHHTo2B2G_M-3000",
+            "GluGluToRadionToHHTo2B2G_M-300",
+            "GluGluToRadionToHHTo2B2G_M-320",
+            "GluGluToRadionToHHTo2B2G_M-350",
+            "GluGluToRadionToHHTo2B2G_M-400",
+            "GluGluToRadionToHHTo2B2G_M-450",
+            "GluGluToRadionToHHTo2B2G_M-500",
+            "GluGluToRadionToHHTo2B2G_M-550",
+            "GluGluToRadionToHHTo2B2G_M-600",
+            "GluGluToRadionToHHTo2B2G_M-650",
+            "GluGluToRadionToHHTo2B2G_M-700",
+            "GluGluToRadionToHHTo2B2G_M-750",
+            "GluGluToRadionToHHTo2B2G_M-800",
+            "GluGluToRadionToHHTo2B2G_M-850",
+            "GluGluToRadionToHHTo2B2G_M-900",
             "DoubleEG_Run2017B",
             "DoubleEG_Run2017C",
             "DoubleEG_Run2017D",
@@ -48,6 +124,7 @@
         ]
     },
     "variables_of_interest" : [
+
         ["Diphoton", "mass"], ["Diphoton", "pt"], ["Diphoton", "eta"], ["Diphoton", "phi"], ["Diphoton", "dR"],
         ["LeadPhoton", "pt"], ["LeadPhoton", "eta"], ["LeadPhoton", "phi"], ["LeadPhoton", "mass"], ["LeadPhoton", "mvaID"], ["LeadPhoton", "genPartFlav"], ["LeadPhoton", "pixelSeed"],
         ["SubleadPhoton", "pt"], ["SubleadPhoton", "eta"], ["SubleadPhoton", "phi"], ["SubleadPhoton", "mass"], ["SubleadPhoton", "mvaID"], ["SubleadPhoton", "genPartFlav"], ["SubleadPhoton", "pixelSeed"],
@@ -58,18 +135,14 @@
         "jet_5_pt","jet_5_eta","jet_5_mass","jet_5_phi",
         "jet_6_pt","jet_6_eta","jet_6_mass","jet_6_phi",
         "jet_7_pt","jet_7_eta","jet_7_mass","jet_7_phi",
+        "fatjet_1_pt","fatjet_1_eta","fatjet_1_phi","fatjet_1_mass","fatjet_1_deepTagMD_H4qvsQCD",
+        "fatjet_2_pt","fatjet_2_eta","fatjet_2_phi","fatjet_2_mass","fatjet_2_deepTagMD_H4qvsQCD",
+        "fatjet_3_pt","fatjet_3_eta","fatjet_3_phi","fatjet_3_mass","fatjet_3_deepTagMD_H4qvsQCD",
         "fatjet_H_pt","fatjet_H_eta","fatjet_H_phi","fatjet_H_mass",
         "fatjet_W_pt","fatjet_W_eta","fatjet_W_phi","fatjet_W_mass",
         "nGoodAK4jets","weight_central",
         "category",
-        "event",
-        "fatjet_1_pt","fatjet_1_eta","fatjet_1_phi","fatjet_1_mass",
-        "fatjet_2_pt","fatjet_2_eta","fatjet_2_phi","fatjet_2_mass",
-        "fatjet_3_pt","fatjet_3_eta","fatjet_3_phi","fatjet_3_mass",
-        "weight_central",
-        "category",
         "event"
-
     ],
     "branches": [
         "MET_MetUnclustEnUpDeltaX",	"MET_MetUnclustEnUpDeltaY","MET_covXX","MET_covXY","MET_covYY","MET_fiducialGenPhi","MET_fiducialGenPt","MET_phi","MET_pt","MET_significance",	"MET_sumEt",	"MET_sumPtUnclustered",
@@ -84,7 +157,7 @@
         "Photon_trkSumPtHollowConeDR03", "Photon_photonIso", "Photon_chargedHadronIso",
         "Photon_genPartFlav",
         "GenPart_eta", "GenPart_genPartIdxMother", "GenPart_mass", "GenPart_pdgId", "GenPart_phi", "GenPart_pt", "GenPart_status","GenPart_statusFlags",
-        "Jet_btagCMVA","Jet_btagCSVV2","Jet_btagDeepB","Jet_btagDeepC","Jet_btagDeepFlavB","Jet_btagDeepFlavC","Jet_eta","Jet_genJetIdx","Jet_hadronFlavour","Jet_jetId","Jet_mass","Jet_nElectrons","Jet_nMuons","Jet_partonFlavour","Jet_phi","Jet_pt","Jet_puId","Jet_puIdDisc","Jet_qgl","Jet_rawFactor","nJet",
+        "Jet_btagCMVA","Jet_btagCSVV2","Jet_btagDeepB","Jet_btagDeepC","Jet_btagDeepFlavB","Jet_btagDeepFlavC","Jet_eta","Jet_genJetIdx","Jet_hadronFlavour","Jet_jetId","Jet_mass","Jet_partonFlavour","Jet_phi","Jet_pt","Jet_puId","Jet_puIdDisc","Jet_qgl","Jet_rawFactor","nJet",
         "FatJet_area","FatJet_btagCMVA","FatJet_btagCSVV2","FatJet_btagDDBvL","FatJet_btagDDBvL_noMD","FatJet_btagDDCvB","FatJet_btagDDCvB_noMD","FatJet_btagDDCvL","FatJet_btagDDCvL_noMD","FatJet_btagDeepB","FatJet_btagHbb","FatJet_deepTagMD_H4qvsQCD","FatJet_deepTagMD_HbbvsQCD","FatJet_deepTagMD_TvsQCD","FatJet_deepTagMD_WvsQCD","FatJet_deepTagMD_ZHbbvsQCD","FatJet_deepTagMD_ZHccvsQCD","FatJet_deepTagMD_ZbbvsQCD","FatJet_deepTagMD_ZvsQCD","FatJet_deepTagMD_bbvsLight","FatJet_deepTagMD_ccvsLight","FatJet_deepTag_H","FatJet_deepTag_QCD","FatJet_deepTag_QCDothers","FatJet_deepTag_TvsQCD","FatJet_deepTag_WvsQCD","FatJet_deepTag_ZvsQCD","FatJet_electronIdx3SJ","FatJet_eta","FatJet_genJetAK8Idx","FatJet_hadronFlavour","FatJet_jetId","FatJet_lsf3","FatJet_mass","FatJet_msoftdrop","FatJet_muonIdx3SJ","FatJet_n2b1","FatJet_n3b1","FatJet_nBHadrons","FatJet_nCHadrons","FatJet_particleNetMD_QCD","FatJet_particleNetMD_Xbb","FatJet_particleNetMD_Xcc","FatJet_particleNetMD_Xqq","FatJet_particleNet_H4qvsQCD","FatJet_particleNet_HbbvsQCD","FatJet_particleNet_HccvsQCD","FatJet_particleNet_QCD","FatJet_particleNet_TvsQCD","FatJet_particleNet_WvsQCD","FatJet_particleNet_ZvsQCD","FatJet_phi","FatJet_pt","FatJet_rawFactor","FatJet_subJetIdx1","FatJet_subJetIdx2","FatJet_tau1","FatJet_tau2","FatJet_tau3","FatJet_tau4","nFatJet",
         "Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge", "Muon_pfRelIso03_all", "Muon_dxy", "Muon_dz", "Muon_tightId", "Muon_isGlobal", "Muon_mediumId",
         "Electron_pt", "Electron_eta", "Electron_phi", "Electron_mass", "Electron_charge", "Electron_mvaFall17V2Iso_WP90", "Electron_mvaFall17V2noIso_WP90", "Electron_pfRelIso03_all", "Electron_dxy", "Electron_dz", "Electron_mvaFall17V2Iso_WP80",
