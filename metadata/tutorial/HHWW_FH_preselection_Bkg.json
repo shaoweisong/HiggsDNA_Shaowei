@@ -44,9 +44,9 @@
             "TTGJets",
             "TTGG0Jets",
             "TTJets",
-            "TTToHadronic",
             "ttWJets",
-            "WGGJets_TuneCP5_13TeV_madgraphMLM_pythia8"
+            "WGGJets_TuneCP5_13TeV_madgraphMLM_pythia8",
+            "GJet_Pt-20toInf_MGG"
         ],
         "years": [
             "2017"

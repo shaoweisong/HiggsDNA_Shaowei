@@ -466,6 +466,7 @@ class AnalysisManager():
         events = []
         sum_weights = 0
         use_xrdcp = True
+        logger.debug("files:%s"%files)
         for file in files:
             if use_xrdcp:
                 local_file_name = "/eos/cms/store/group/phys_higgs/cmshgg/shsong/" + file.split("/")[-1]
@@ -473,46 +474,73 @@ class AnalysisManager():
                 time.sleep(10)
                 logger.debug("sleep 10 secs before xrdcp")
                 findfile="ls "+ local_file_name
-                fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True,close_fds=True)
+                logger.debug("checking if there is an existing root file")
+                fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                 if fileexist.communicate()[1] ==b'':
                     subprocess.check_call(['rm',local_file_name])
                     logger.debug("remove existed latter root file")
+                else:
+                    logger.debug("No previous root file exist")
                 cmd = 'xrdcp "'+file+'" '+local_file_name
                 xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+                xrdcpvalue.wait()
+                logger.debug("Try to download the file for the first time")
                 if xrdcpvalue.communicate()[1] ==b'':
                     logger.debug("Successfully download %s"%local_file_name)
                 else:
-                    subprocess.check_call(['rm',local_file_name])
-                    logger.debug("rm %s"%local_file_name)
+                    logger.debug("ERROR: %s"% xrdcpvalue.communicate()[1])
+                    findfile="ls "+ local_file_name 
+                    fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                    if fileexist.communicate()[1] ==b'':
+                        subprocess.check_call(['rm',local_file_name])
+                        logger.debug("rm %s"%local_file_name)
                     xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True) 
+                    logger.debug("Try to download the file for the second time")
+                    xrdcpvalue.wait()
                     if xrdcpvalue.communicate()[1] ==b'':
                         logger.debug("Successfully download %s"%local_file_name)
                     else:
-                        subprocess.check_call(['rm',local_file_name])
-                        logger.debug("rm %s"%local_file_name)
+                        logger.debug("ERROR: %s"% xrdcpvalue.communicate()[1])
+                        findfile="ls "+ local_file_name 
+                        fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                        if fileexist.communicate()[1] ==b'':
+                            subprocess.check_call(['rm',local_file_name])
+                            logger.debug("rm %s"%local_file_name)
                         file="root://cmsxrootd.fnal.gov/"+file.split("root://cms-xrd-global.cern.ch/")[1]
                         cmd = 'xrdcp "'+file+'" '+local_file_name
-                        xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)  
+                        xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True) 
+                        logger.debug("Try to download the file for the third time")
+                        xrdcpvalue.wait() 
                         if xrdcpvalue.communicate()[1] ==b'':
                             logger.debug("Successfully download %s"%local_file_name)
                         else:
-                            subprocess.check_call(['rm',local_file_name])
-                            # file="root://cmsxrootd.fnal.gov/"+file.split("root://cms-xrd-global.cern.ch/")[1]
-                            logger.debug("rm %s"%local_file_name)
+                            logger.debug("ERROR: %s"% xrdcpvalue.communicate()[1])
+                            findfile="ls "+ local_file_name 
+                            fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                            if fileexist.communicate()[1] ==b'':
+                                subprocess.check_call(['rm',local_file_name])
+                                logger.debug("rm %s"%local_file_name)
                             xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)  
+                            logger.debug("Try to download the file for the fourth time")
+                            xrdcpvalue.wait()
                             if xrdcpvalue.communicate()[1] ==b'':
                                 logger.debug("Successfully download %s"%local_file_name)
                             else:
-                                subprocess.check_call(['rm',local_file_name])
-                                logger.debug("rm %s"%local_file_name)
+                                logger.debug("ERROR: %s"% xrdcpvalue.communicate()[1])
+                                findfile="ls "+ local_file_name 
+                                fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                                if fileexist.communicate()[1] ==b'':
+                                    subprocess.check_call(['rm',local_file_name])
+                                    logger.debug("rm %s"%local_file_name)
                                 file="root://xrootd-cms.infn.it/"+file.split("root://cmsxrootd.fnal.gov/")[1]
                                 cmd = 'xrdcp "'+file+'" '+local_file_name
                                 xrdcpvalue = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+                                logger.debug("Try to download the file for the fifth time")
+                                xrdcpvalue.wait()
                                 if xrdcpvalue.communicate()[1] ==b'':
                                     logger.debug("Successfully download %s"%local_file_name)
                                 else:
-                                    subprocess.check_call(['rm',local_file_name])
-                                    logger.debug("file not found ([ERROR] %s"%file) 
+                                    logger.debug("ERROR: %s"% xrdcpvalue.communicate()[1])
                 file = local_file_name
                 logger.debug("local file name: %s" %file )
                 logger.debug("cp file to local")
@@ -537,15 +565,13 @@ class AnalysisManager():
                 #     except ImportError as IO:
                 #         logger 
                 findfile="ls "+ local_file_name
-                fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True,close_fds=True)
+                fileexist = subprocess.Popen(findfile,stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                 if fileexist.communicate()[1] ==b'':
                     subprocess.check_call(['rm',local_file_name])
                     logger.debug("remove the local cp file: %s" %file)
 
         events = awkward.concatenate(events)
         return events, sum_weights
-
-
     @staticmethod
     def write_events(events, save_branches, name):
         """
