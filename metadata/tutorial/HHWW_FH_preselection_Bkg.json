@@ -12,7 +12,7 @@
                 "name": "diphoton_tagger",
                 "options": {
                     "gen_info": {
-                        "calculate": true
+                        "calculate": false
                     }
                 }
             }
@@ -37,16 +37,34 @@
     "samples": {
         "catalog": "metadata/samples/hhww_UL_local.json",
         "sample_list": [
-            "GluGluHtoGG",
-            "VHtoGG",
-            "ttHJettoGG",
-            "VBFHtoGG",
-            "TTGJets",
-            "TTGG0Jets",
-            "TTJets",
-            "ttWJets",
+            "GJet_Pt-20toInf_DoubleEMEnriched_MGG-40to80_TuneCP5_13TeV_Pythia8",
+            "GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8",
+            "GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8",
+            "DiPhotonJetsBox_M40_80-sherpa",
+            "DiPhotonJetsBox_MGG-80toInf_13TeV-sherpa",
+            "QCD_Pt-30to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV-pythia8",
+            "QCD_Pt-30toInf_DoubleEMEnriched_MGG-40to80_TuneCP5_13TeV-pythia8",
+            "QCD_Pt-40ToInf_DoubleEMEnriched_MGG-80ToInf_TuneCP5_13TeV-pythia8",
+            "DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M100to200_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M200to500_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M500to700_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M700to800_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M800to1000_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M1000to1500_TuneCP5_13TeV-amcatnloFXFX-pythia8",      
+            "DYJetsToLL_M1500to2000_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M2000to3000_TuneCP5_13TeV-amcatnloFXFX-pythia8", 
+            "TTToHadronic_TuneCP5_13TeV-powheg-pythia8",
+            "TTJets_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "TTGG_0Jets_TuneCP5_13TeV-amcatnlo-madspin-pythia8",
             "WGGJets_TuneCP5_13TeV_madgraphMLM_pythia8",
-            "GJet_Pt-20toInf_MGG"
+            "ttWJets_TuneCP5_13TeV_madgraphMLM_pythia8",
+            "TTGJets_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8",
+            "GluGluHToGG_M125_TuneCP5_13TeV-amcatnloFXFX-pythia8",
+            "VHToGG_M125_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8",
+            "ttHJetToGG_M125_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8",
+            "VBFHToGG_M125_TuneCP5_13TeV-amcatnlo-pythia8"
+
         ],
         "years": [
             "2017"

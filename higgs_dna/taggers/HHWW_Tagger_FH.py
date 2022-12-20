@@ -17,15 +17,15 @@ DUMMY_VALUE = -999.
 
 DEFAULT_OPTIONS = {
     "electrons": {
-        "pt": 20.0,
+        "pt": 10.0,
         "dr_photons": 0.2
     },
     "muons": {
-        "pt": 21.0,
+        "pt": 10.0,
         "dr_photons": 0.2
     },
     "jets": {
-        "pt": 20.0, # attention this is the one exact same as old framework, make this 20 GeV(loose) for further analysis, we all know the higgs-like ak4 jets pt can be very small
+        "pt": 10.0, # attention this is the one exact same as old framework, make this 20 GeV(loose) for further analysis, we all know the higgs-like ak4 jets pt can be very small
         "eta": 2.4,
         "dr_photons": 0.4,
         "dr_electrons": 0.4,
@@ -179,9 +179,13 @@ class HHWW_Preselection_FH(Tagger):
         n_objects=3,
         dummy_value=-999
         )
-
-        fatjet_H_cut =  (fatjets.pt>300) & (fatjets.deepTagMD_H4qvsQCD>0.4)
-
+        fatjet_H_pt = fatjets.pt>200
+        fathet_H_deeptagcut = fatjets.deepTagMD_H4qvsQCD >0.4
+        fatjet_H_cut =  (fatjets.pt>200) & (fatjets.deepTagMD_H4qvsQCD>0.4)
+        self.register_cuts(
+            names=["fatjetH pt cut","fatjet deep tagger cut"],
+            results=[fatjet_H_pt,fathet_H_deeptagcut]
+        )
         fatjets_H = awkward_utils.add_field(
             events = events,
             name = "SelectedFatJet_H",
