@@ -96,7 +96,8 @@ const TString TreeNameWGJJToLNu_Legacy = "WGJJToLNu_Legacy";
 // const TString InputQCDFile = "/eos/user/z/zhenxuan/Hgg_mass/MiniTree/UL2018/MassUL2018_ETSS/XGboost_diphoMVA_UL18_newSig_newModel.root";//SF + sigmaE/E weights + Tao 2D pT weights
 // onst TString TreeNameQCD = "DataDriven_QCD";
 // const string OutputPlotDir = "DataMCComparisonPlots_mvaCuts";
-const string OutputPlotDir = "/eos/user/s/shsong/www/SL_2jets_category_Hmass_control_region";
+// const string OutputPlotDir = "/eos/user/s/shsong/www/ggjets";
+const string OutputPlotDir = "/eos/user/s/shsong/www/Wjets";
 // const string OutputPlotDir = "/eos/user/s/shsong/www/SL_2jets_category_Wmass_control_region";
 // const string OutputPlotDir = "/eos/user/s/shsong/www/SL_2jets_category_btag_control_region";
 // const string OutputPlotDir = "DataMCComparisonPlots_old";
@@ -106,7 +107,8 @@ const string OutputPlotDir = "/eos/user/s/shsong/www/SL_2jets_category_Hmass_con
 // const string Preselections="";
 // const string Preselections="(LeadJet_btagDeepFlavB>0.3093 || SubleadJet_btagDeepFlavB >0.3093)&&(category==2|category==3)";
 // const string Preselections="(Wqq_mass <= 65. || Wqq_mass >= 106.)&&(category==2|category==3)&&LeadJet_btagDeepFlavB<0.3093&&SubleadJet_btagDeepFlavB<0.3093";
-const string Preselections="(CMS_hgg_mass >=100. || CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&(category==2|category==3)";//&&LeadJet_btagDeepFlavB<0.3093&&SubleadJet_btagDeepFlavB<0.3093";
+const string Preselections="( CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&(category==2|category==3)&&LeadJet_btagDeepFlavB<0.3093&&SubleadJet_btagDeepFlavB<0.3093&&(Wqq_mass > 65. && Wqq_mass < 106.)";
+// const string Preselections="( CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&(category==2|category==3)&&LeadJet_btagDeepFlavB<0.3093&&SubleadJet_btagDeepFlavB<0.3093&&(Wqq_mass <= 65. || Wqq_mass >= 106.)";
 // const string Preselections="(CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&category==2";
 // const string Preselections="(CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&(category==2 ||category==1)";
 // const string Preselections="(CMS_hgg_mass <= 115. || CMS_hgg_mass >= 135.)&&(category==3 ||category==4)";
