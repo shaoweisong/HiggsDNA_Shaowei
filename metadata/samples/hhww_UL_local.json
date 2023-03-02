@@ -525,6 +525,12 @@
             ]
         }
     },
+    "test":{
+        "fpo":1,
+        "xs":1,
+        "bf":1.0,
+        "files":{"2017":["/eos/cms/store/group/phys_higgs/cmshgg/shsong/out_UL17_DiPhotonJetsBox_M40_80_00FC859188B0_630259_12221.root"]}
+    },
     "GJet_Pt-20toInf_DoubleEMEnriched_MGG-40to80_TuneCP5_13TeV_Pythia8":{
         "fpo":2,
         "xs":3155,

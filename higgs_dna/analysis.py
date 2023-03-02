@@ -465,7 +465,7 @@ class AnalysisManager():
         """
         events = []
         sum_weights = 0
-        use_xrdcp = True
+        use_xrdcp = False
         logger.debug("files:%s"%files)
         for file in files:
             if use_xrdcp:
